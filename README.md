@@ -1,20 +1,13 @@
-# Pricing Table for TYPO3 CMS
+# Timeline for TYPO3 CMS
 
-Dynamic pricing comparison table as a content element in TYPO3. Plans, features, and cell values are managed in the TYPO3 backend; the frontend renders a responsive table with a monthly/yearly price toggle.
+Timeline events as a content element in TYPO3. Events with a name, short description, and date range are managed in the TYPO3 backend; the frontend renders a responsive two-column timeline with alternating left/right cards.
 
 ## Features
 
-- Pricing plans with monthly and yearly prices
-- Feature rows grouped by feature groups
-- Per-cell value types: available (✓), unavailable (–), or custom text
-- Monthly/yearly toggle with no page reload
-- Highlighted plan column
-- Optional tooltip per feature (via description field)
+- Events with name, perex, description (RTE), date from, and optional date to
+- Events sorted by date (newest first)
+- Alternating left/right card layout with a central vertical line
 - Customizable templates and styling
-
-## Example
-
-Live example: [fingather.com/pricing](https://www.fingather.com/pricing)
 
 ## Requirements
 
@@ -24,39 +17,26 @@ Live example: [fingather.com/pricing](https://www.fingather.com/pricing)
 ## Installation
 
 ```bash
-composer require marekskopal/typo3-pricing
+composer require marekskopal/typo3-timeline
 ```
 
 After installation, run the database analyser in the TYPO3 Install Tool to create the required tables.
 
 ## Setup
 
-Include the TypoScript Set **Pricing** in your site package or via the site configuration sets.
-
-### Available Settings
-
-| Setting | Default | Description |
-|---------|---------|-------------|
-| `settings.currency` | `$` | Currency symbol displayed before prices |
-| `view.templateRootPath` | *(extension default)* | Override template root path |
-| `view.partialRootPath` | *(extension default)* | Override partial root path |
-| `view.layoutRootPath` | *(extension default)* | Override layout root path |
+Include the TypoScript Set **Timeline** in your site package or via the site configuration sets.
 
 ## Backend Setup
 
-Create records in this order:
+Create **Timeline Event** records on the page where the content element is placed:
 
-1. **Feature Groups** — optional section headers (e.g. "Limits", "Integrations")
-2. **Features** — individual table rows; assign a feature group if desired
-3. **Plans** — pricing columns (name, subtitle, monthly/yearly price, currency, highlighted flag)
-   For each plan, add **Plan Feature** inline records that link a feature to a value type:
-   - `available` — renders a checkmark
-   - `unavailable` — renders a dash (default when no record exists)
-   - `text` — renders a custom string (e.g. "20", "Unlimited", "Email")
+- **Name** — event title (required)
+- **Perex** — short summary shown on the card
+- **Description** — full RTE description
+- **Date From** — event start date (required, used for sorting)
+- **Date To** — event end date (optional)
 
-## Usage
-
-Add the **Pricing Table** content element to a page. The table is rendered automatically from the backend records.
+Then add the **Timeline** content element to the same page.
 
 ## Customization
 
@@ -65,7 +45,9 @@ Add the **Pricing Table** content element to a page. The table is rendered autom
 Override templates by setting custom paths in TypoScript:
 
 ```typoscript
-plugin.tx_mspricing.view.templateRootPath = EXT:your_extension/Resources/Private/Templates/MsPricing/
+plugin.tx_mstimeline.view.templateRootPaths.10 = EXT:your_extension/Resources/Private/Templates/MsTimeline/
+plugin.tx_mstimeline.view.partialRootPaths.10  = EXT:your_extension/Resources/Private/Partials/MsTimeline/
+plugin.tx_mstimeline.view.layoutRootPaths.10   = EXT:your_extension/Resources/Private/Layouts/MsTimeline/
 ```
 
 ### Styling
@@ -74,19 +56,17 @@ The extension includes minimal CSS. Key classes:
 
 | Class | Element |
 |-------|---------|
-| `.mspricing-toggle` | Monthly/yearly toggle container |
-| `.mspricing-toggle__button--active` | Active toggle button |
-| `.mspricing-table` | The `<table>` element |
-| `.mspricing-plan` | Plan header cell (`<th>`) |
-| `.mspricing-plan--highlighted` | Highlighted plan column |
-| `.mspricing-plan__name` | Plan name |
-| `.mspricing-plan__subtitle` | Plan subtitle |
-| `.mspricing-plan__price` | Price element |
-| `.mspricing-group-header` | Feature group header row |
-| `.mspricing-feature__name` | Feature name cell |
-| `.mspricing-cell` | Value cell |
-| `.mspricing-cell--highlighted` | Value cell in highlighted column |
-| `.mspricing-check` | Checkmark SVG icon |
+| `.mstimeline-wrapper` | Outer wrapper |
+| `.mstimeline` | Timeline container |
+| `.mstimeline__item` | Single event row |
+| `.mstimeline__item--left` | Card positioned on the left |
+| `.mstimeline__item--right` | Card positioned on the right |
+| `.mstimeline__dot` | Central dot marker |
+| `.mstimeline__card` | Event card |
+| `.mstimeline__date` | Date label |
+| `.mstimeline__title` | Event name |
+| `.mstimeline__perex` | Short description |
+| `.mstimeline__description` | Full RTE description |
 
 ## License
 
