@@ -12,7 +12,10 @@
                 <f:format.date format="d.m.Y">{event.dateTo}</f:format.date>
             </f:if>
         </div>
-        <h3 class="mstimeline__title">{event.name}</h3>
+        <h3 class="mstimeline__title">{event.title}</h3>
+        <f:if condition="{event.subtitle}">
+            <p class="mstimeline__subtitle">{event.subtitle}</p>
+        </f:if>
         <f:if condition="{event.perex}">
             <p class="mstimeline__perex">{event.perex}</p>
         </f:if>

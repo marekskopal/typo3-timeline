@@ -9,7 +9,9 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class Event extends AbstractEntity
 {
-    protected string $name = '';
+    protected string $title = '';
+
+    protected string $subtitle = '';
 
     protected string $perex = '';
 
@@ -19,9 +21,14 @@ class Event extends AbstractEntity
 
     protected ?DateTime $dateTo = null;
 
-    public function getName(): string
+    public function getTitle(): string
     {
-        return $this->name;
+        return $this->title;
+    }
+
+    public function getSubtitle(): string
+    {
+        return $this->subtitle;
     }
 
     public function getPerex(): string

@@ -5,8 +5,11 @@
             <trans-unit id="tx_mstimeline_domain_model_event">
                 <source>Event</source>
             </trans-unit>
-            <trans-unit id="tx_mstimeline_domain_model_event.name">
-                <source>Name</source>
+            <trans-unit id="tx_mstimeline_domain_model_event.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="tx_mstimeline_domain_model_event.subtitle">
+                <source>Subtitle</source>
             </trans-unit>
             <trans-unit id="tx_mstimeline_domain_model_event.perex">
                 <source>Perex</source>

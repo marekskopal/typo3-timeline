@@ -8,7 +8,7 @@ $table = 'tx_mstimeline_domain_model_event';
 return [
     'ctrl' => [
         'title' => $llPath . ':' . $table,
-        'label' => 'name',
+        'label' => 'title',
         'label_alt' => 'date_from',
         'label_alt_force' => true,
         'sortby' => 'date_from',
@@ -32,14 +32,23 @@ return [
                 ],
             ],
         ],
-        'name' => [
-            'label' => $llPath . ':' . $table . '.name',
+        'title' => [
+            'label' => $llPath . ':' . $table . '.title',
             'config' => [
                 'type' => 'input',
                 'size' => 40,
                 'max' => 255,
                 'eval' => 'trim',
                 'required' => true,
+            ],
+        ],
+        'subtitle' => [
+            'label' => $llPath . ':' . $table . '.subtitle',
+            'config' => [
+                'type' => 'input',
+                'size' => 40,
+                'max' => 255,
+                'eval' => 'trim',
             ],
         ],
         'perex' => [
@@ -79,7 +88,7 @@ return [
         '0' => [
             'showitem' => '
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-                    name, date_from, date_to, perex, description,
+                    title, subtitle, date_from, date_to, perex, description,
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
                     hidden
             ',

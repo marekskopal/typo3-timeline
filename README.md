@@ -30,7 +30,8 @@ Include the TypoScript Set **Timeline** in your site package or via the site con
 
 Create **Timeline Event** records on the page where the content element is placed:
 
-- **Name** — event title (required)
+- **Title** — event title (required)
+- **Subtitle** — optional subtitle shown below the title
 - **Perex** — short summary shown on the card
 - **Description** — full RTE description
 - **Date From** — event start date (required, used for sorting)
@@ -64,7 +65,8 @@ The extension includes minimal CSS. Key classes:
 | `.mstimeline__dot` | Central dot marker |
 | `.mstimeline__card` | Event card |
 | `.mstimeline__date` | Date label |
-| `.mstimeline__title` | Event name |
+| `.mstimeline__title` | Event title |
+| `.mstimeline__subtitle` | Event subtitle |
 | `.mstimeline__perex` | Short description |
 | `.mstimeline__description` | Full RTE description |
 
