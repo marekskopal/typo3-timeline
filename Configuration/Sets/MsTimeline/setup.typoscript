@@ -1,0 +1,20 @@
+plugin.tx_mstimeline {
+    view {
+        templateRootPaths {
+            0 = EXT:ms_timeline/Resources/Private/Templates/
+            1 = {$plugin.tx_mstimeline.view.templateRootPath}
+        }
+
+        partialRootPaths {
+            0 = EXT:ms_timeline/Resources/Private/Partials/
+            1 = {$plugin.tx_mstimeline.view.partialRootPath}
+        }
+
+        layoutRootPaths {
+            0 = EXT:ms_timeline/Resources/Private/Layouts/
+            1 = {$plugin.tx_mstimeline.view.layoutRootPath}
+        }
+    }
+}
+
+page.includeCSS.mstimeline = EXT:ms_timeline/Resources/Public/Css/Timeline.css

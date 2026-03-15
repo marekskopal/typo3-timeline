@@ -1,0 +1,27 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+
+<div class="mstimeline__item {f:if(condition: isOdd, then: 'mstimeline__item--right', else: 'mstimeline__item--left')}">
+    <div class="mstimeline__content">
+        <div class="mstimeline__date">
+            <f:format.date format="d.m.Y">{event.dateFrom}</f:format.date>
+            <f:if condition="{event.dateTo}">
+                <span class="mstimeline__date-separator">&#8211;</span>
+                <f:format.date format="d.m.Y">{event.dateTo}</f:format.date>
+            </f:if>
+        </div>
+        <h3 class="mstimeline__title">{event.name}</h3>
+        <f:if condition="{event.perex}">
+            <p class="mstimeline__perex">{event.perex}</p>
+        </f:if>
+        <f:if condition="{event.description}">
+            <div class="mstimeline__description">
+                <f:format.html>{event.description}</f:format.html>
+            </div>
+        </f:if>
+    </div>
+</div>
+
+</html>

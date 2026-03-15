@@ -1,0 +1,159 @@
+/* Timeline Styles */
+.mstimeline-wrapper {
+    font-family: inherit;
+    width: 100%;
+}
+
+/* Timeline container */
+.mstimeline {
+    position: relative;
+    padding: 2rem 0;
+    overflow: hidden;
+}
+
+/* Central vertical line */
+.mstimeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    background: #dee2e6;
+}
+
+/* Timeline item */
+.mstimeline__item {
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    padding-bottom: 3rem;
+}
+
+/* Odd items → RIGHT side */
+.mstimeline__item--right {
+    left: 50%;
+    padding-left: 2.5rem;
+    padding-right: 1rem;
+}
+
+/* Even items → LEFT side */
+.mstimeline__item--left {
+    left: 0;
+    padding-right: 2.5rem;
+    padding-left: 1rem;
+    text-align: right;
+}
+
+/* Dot on the center line */
+.mstimeline__item::after {
+    content: '';
+    position: absolute;
+    top: 1.25rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #0073b6;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px #0073b6;
+    z-index: 1;
+}
+
+.mstimeline__item--right::after {
+    left: -7px;
+}
+
+.mstimeline__item--left::after {
+    right: -7px;
+    left: auto;
+}
+
+/* Content card */
+.mstimeline__content {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+/* Date */
+.mstimeline__date {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #0073b6;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+}
+
+.mstimeline__date-separator {
+    margin: 0 0.25rem;
+}
+
+/* Title */
+.mstimeline__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 0.5rem 0;
+}
+
+/* Perex */
+.mstimeline__perex {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.5;
+}
+
+/* Description (RTE) */
+.mstimeline__description {
+    font-size: 0.9rem;
+    color: #334155;
+    line-height: 1.6;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.mstimeline__description p:first-child {
+    margin-top: 0;
+}
+
+.mstimeline__description p:last-child {
+    margin-bottom: 0;
+}
+
+/* Empty state */
+.mstimeline__empty {
+    text-align: center;
+    color: #94a3b8;
+    font-style: italic;
+    padding: 3rem 0;
+}
+
+/* Responsive: single column on mobile */
+@media (max-width: 768px) {
+    .mstimeline::before {
+        left: 1.25rem;
+        transform: none;
+    }
+
+    .mstimeline__item,
+    .mstimeline__item--right,
+    .mstimeline__item--left {
+        width: 100%;
+        left: 0;
+        padding-left: 3.5rem;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .mstimeline__item--right::after,
+    .mstimeline__item--left::after {
+        left: 0.625rem;
+        right: auto;
+    }
+}
