@@ -18,6 +18,9 @@ return [
         'enablecolumns' => [
             'disabled' => 'hidden',
         ],
+        'languageField' => 'sys_language_uid',
+        'transOrigPointerField' => 'l10n_parent',
+        'transOrigDiffSourceField' => 'l10n_diffsource',
         'iconfile' => 'EXT:ms_timeline/Resources/Public/Icons/Extension.svg',
     ],
     'columns' => [
@@ -89,6 +92,8 @@ return [
             'showitem' => '
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                     title, subtitle, date_from, date_to, perex, description,
+                --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+                    sys_language_uid, l10n_parent, l10n_diffsource,
                 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
                     hidden
             ',
